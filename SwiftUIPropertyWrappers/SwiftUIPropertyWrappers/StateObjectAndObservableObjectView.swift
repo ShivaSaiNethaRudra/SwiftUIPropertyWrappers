@@ -30,8 +30,10 @@ struct StateObjectAndObservableObjectView: View {
             // created a seperate view where action performed to changes this view StateObject propertry 'counterModel'
             // Here the StateObject property 'counterModel' is passing for counterModel key as this 'counterModel' is a ObservedObject of same type
             MyCounterView(counterModel: counterModel)
-            
         }
+        .navigationTitle("StateObjectAndObservableObjectView")
+        .navigationBarTitleDisplayMode(.inline)
+
     }
 }
 

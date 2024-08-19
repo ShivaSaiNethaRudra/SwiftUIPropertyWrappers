@@ -9,23 +9,26 @@ import SwiftUI
 
 struct ContentView: View {    
     var body: some View {
-        VStack() {
             NavigationStack {
-                NavigationLink(destination: StateAndBindingView()) {
-                    Text("StateAndBindingView")
+                VStack(spacing: 30) {
+                    NavigationLink(destination: StateAndBindingView()) {
+                        Text("StateAndBindingView")
+                            .font(.title)
+                    }
+                    NavigationLink(destination: StateObjectAndObservableObjectView()) {
+                        Text("StateObjectAndObservableObjectView")
+                            .font(.title)
+                    }
+                    NavigationLink(destination: EnviromentObjectView()) {
+                        Text("EnviromentObjectView")
+                            .font(.title)
+                    }
                 }
-                NavigationLink(destination: StateObjectAndObservableObjectView()) {
-                    Text("StateObjectAndObservableObjectView")
-                }
-                NavigationLink(destination: EnviromentObjectView()) {
-                    Text("EnviromentObjectView")
-                }
+                .navigationTitle("Property Wrappers")
             }
-            .navigationBarTitle("SwiftUI Property Wrappers")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(false)
-        }
-        .padding()
+            .padding()
     }
 }
 

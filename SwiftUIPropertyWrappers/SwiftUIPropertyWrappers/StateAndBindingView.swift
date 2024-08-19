@@ -26,6 +26,9 @@ struct StateAndBindingView: View {
             ButtonView(counter: $count)
             
         }
+        .navigationTitle("StateAndBindingView")
+        .navigationBarTitleDisplayMode(.inline)
+
         
     }
 }
