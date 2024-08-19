@@ -14,6 +14,7 @@
 		F2A95E732C71E5D900D2D5AD /* StateAndBindingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A95E722C71E5D900D2D5AD /* StateAndBindingView.swift */; };
 		F2A95E752C71E65700D2D5AD /* StateObjectAndObservableObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A95E742C71E65700D2D5AD /* StateObjectAndObservableObjectView.swift */; };
 		F2A95E772C71E68C00D2D5AD /* EnviromentObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A95E762C71E68C00D2D5AD /* EnviromentObjectView.swift */; };
+		F2A95E792C731B0E00D2D5AD /* UserDefaultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A95E782C731B0E00D2D5AD /* UserDefaultsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		F2A95E722C71E5D900D2D5AD /* StateAndBindingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateAndBindingView.swift; sourceTree = "<group>"; };
 		F2A95E742C71E65700D2D5AD /* StateObjectAndObservableObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateObjectAndObservableObjectView.swift; sourceTree = "<group>"; };
 		F2A95E762C71E68C00D2D5AD /* EnviromentObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviromentObjectView.swift; sourceTree = "<group>"; };
+		F2A95E782C731B0E00D2D5AD /* UserDefaultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				F2A95E722C71E5D900D2D5AD /* StateAndBindingView.swift */,
 				F2A95E742C71E65700D2D5AD /* StateObjectAndObservableObjectView.swift */,
 				F2A95E762C71E68C00D2D5AD /* EnviromentObjectView.swift */,
+				F2A95E782C731B0E00D2D5AD /* UserDefaultsView.swift */,
 				F2A95E682C71E57400D2D5AD /* Assets.xcassets */,
 				F2A95E6A2C71E57400D2D5AD /* Preview Content */,
 			);
@@ -149,6 +152,7 @@
 				F2A95E672C71E57200D2D5AD /* ContentView.swift in Sources */,
 				F2A95E752C71E65700D2D5AD /* StateObjectAndObservableObjectView.swift in Sources */,
 				F2A95E732C71E5D900D2D5AD /* StateAndBindingView.swift in Sources */,
+				F2A95E792C731B0E00D2D5AD /* UserDefaultsView.swift in Sources */,
 				F2A95E772C71E68C00D2D5AD /* EnviromentObjectView.swift in Sources */,
 				F2A95E652C71E57200D2D5AD /* SwiftUIPropertyWrappersApp.swift in Sources */,
 			);
