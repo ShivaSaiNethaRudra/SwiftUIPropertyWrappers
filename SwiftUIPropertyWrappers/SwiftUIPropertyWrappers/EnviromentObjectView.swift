@@ -72,7 +72,7 @@ struct Subview3:View {
     var body: some View {
         ZStack {
             VStack {
-                Text("Subiew3")
+                Text("Subview3")
                     .font(.title)
                 Text("subview3InternalCount is \(subview3InternalCount)")
                     .font(.title2)
