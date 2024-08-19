@@ -23,6 +23,10 @@ struct ContentView: View {
                         Text("EnviromentObjectView")
                             .font(.title)
                     }
+                    NavigationLink(destination: UserDefaultsView()) {
+                        Text("UserDefaultsView")
+                            .font(.title)
+                    }
                 }
                 .navigationTitle("Property Wrappers")
             }
