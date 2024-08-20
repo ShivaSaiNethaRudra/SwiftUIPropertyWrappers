@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+//To Establish the connection between StateObject and observedObject, we must declare the custom object as Observable object, so that its custom properties can be accessable for read and write from both view where this object instance is created via stateObject and declared via ObservedObject or EnvironmentObject
 class MyCustomViewData: ObservableObject {
     @Published var count = 0
 }
@@ -28,7 +30,7 @@ struct EnviromentObjectView: View {
                 
             }
             .background(Color(.green)).ignoresSafeArea()
-            Subview1().environmentObject(viewData)
+            Subview1(viewData: viewData).environmentObject(viewData)
         }
         .navigationTitle("EnviromentObjectView")
         .navigationBarTitleDisplayMode(.inline)
@@ -36,59 +38,61 @@ struct EnviromentObjectView: View {
 }
 
 struct Subview1:View {
-    @State var subview1InternalCount = 0
+    @ObservedObject var viewData: MyCustomViewData
     var body: some View {
         ZStack {
             VStack {
                 Text("Subview1")
                     .font(.title)
-                Text("subview1InternalCount is \(subview1InternalCount) ")
+                Text("subview1InternalCount is \(viewData.count) ")
                     .font(.title2)
             }
         }
         .background(Color(.yellow)).ignoresSafeArea()
-        Subview2(subview2InternalCount: $subview1InternalCount)
+        Subview2(viewData: viewData)
     }
 }
 
 struct Subview2:View {
-    @Binding var subview2InternalCount: Int
+    @ObservedObject var viewData: MyCustomViewData
     var body: some View {
         ZStack {
             VStack {
                 Text("Subview2")
                     .font(.title)
-                Text("subview2InternalCount = \(subview2InternalCount)")
+                Text("subview2InternalCount = \(viewData.count)")
                     .font(.title2)
             }
         }
         .background(Color(.yellow)).ignoresSafeArea()
-        Subview3(subview3InternalCount: $subview2InternalCount)
+        Subview3(viewData: viewData)
     }
 }
 
 struct Subview3:View {
-    @Binding var subview3InternalCount: Int
+    @ObservedObject var viewData: MyCustomViewData
     var body: some View {
         ZStack {
             VStack {
                 Text("Subview3")
                     .font(.title)
-                Text("subview3InternalCount is \(subview3InternalCount)")
+                Text("subview3InternalCount is \(viewData.count)")
                     .font(.title2)
                 
             }
         }
         .background(Color(.yellow)).ignoresSafeArea()
         .padding()
-        Subview4(subview4InternalCount: $subview3InternalCount)
+        Subview4()
         
     }
 }
 
 struct Subview4:View {
+    // When a variable declared to a custom obejct as EnvironmentObject, it will update its instance and its properties in the View where it is created and will update the view immediately
+    // Here this EnvironmentObject variable instance is created in parent view as @StateObject
+    // Here When Loading this view, there is no parameter is passed from its loading parent view.
     @EnvironmentObject var viewData: MyCustomViewData
-    @Binding var subview4InternalCount: Int
     var body: some View {
         ZStack {
             VStack {
@@ -102,9 +106,15 @@ struct Subview4:View {
         .padding()
         Button {
             viewData.count += 1
-            subview4InternalCount = viewData.count
         } label: {
             Text("Incease the count to \(viewData.count + 1)")
+                .font(.title2)
+        }
+        
+        Button {
+            viewData.count = 0
+        } label: {
+            Text("Reset counter")
                 .font(.title2)
         }
     }

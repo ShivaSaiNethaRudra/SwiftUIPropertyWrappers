@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//To Establish the connection between StateObject and observedObject, we must declare the custom object as Observable object, so that its custom properties can be accessable for read and write from both view where this object instance is created via stateObject and declared via ObservedObject or EnvironmentObject
 class MyCounterViewModel: ObservableObject {
     @Published var count = 0
 }
