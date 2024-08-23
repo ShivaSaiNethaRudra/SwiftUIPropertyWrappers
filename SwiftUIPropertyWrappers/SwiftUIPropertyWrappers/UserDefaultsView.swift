@@ -15,7 +15,7 @@ struct UserDefaultsView: View {
             VStack(spacing: 20) {
                 
                 // Here I am using this AppStorage variable 'counter' which store the UserDefault value for key 'counterValue' and it changes it UserDefaultvalue changes anywhere in app automatically instead of specifically calling again
-                Text("CounterValue via AppStorage is \(counter)")
+                Text("CounterValue in UserDefaultsView is \(counter)")
                     .font(.title2)
                 Button("Increase Counter") {
                     counter += 1
@@ -31,9 +31,12 @@ struct UserDefaultsView: View {
 }
 
 struct DisplayView:View {
+    @AppStorage("counterValue") var counter2 = 0
     var body: some View {
         ZStack {
             VStack {
+                Text("CounterValue in DisplayView is \(counter2)")
+                    .font(.title2)
                 Button("Reset counter") {
                     // Here on Clicking this button, I am removing "counterValue" from UserDefaults and it will update the view where it is been used.
                     UserDefaults.standard.removeObject(forKey: "counterValue")

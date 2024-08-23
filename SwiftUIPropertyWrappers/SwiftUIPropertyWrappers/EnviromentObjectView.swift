@@ -15,25 +15,28 @@ class MyCustomViewData: ObservableObject {
 
 struct EnviromentObjectView: View {
     @StateObject private var viewData = MyCustomViewData()
+    @Environment(\.colorScheme) private var colorScheme
     var body: some View {
-        VStack{
-            Text("Counter")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            ZStack {
-                VStack {
-                    Text("Parentview")
-                        .font(.title)
-                    Text("Count = \(viewData.count)")
+        if colorScheme == .light {
+            VStack{
+                Text("Counter")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                ZStack {
+                    VStack {
+                        Text("Parentview")
+                            .font(.title)
+                        Text("Count = \(viewData.count)")
+                    }
+                    .padding()
+                    
                 }
-                .padding()
-                
+                .background(Color(.green)).ignoresSafeArea()
+                Subview1(viewData: viewData).environmentObject(viewData)
             }
-            .background(Color(.green)).ignoresSafeArea()
-            Subview1(viewData: viewData).environmentObject(viewData)
+            .navigationTitle("EnviromentObjectView")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .navigationTitle("EnviromentObjectView")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

@@ -16,7 +16,7 @@ class MyCounterViewModel: ObservableObject {
 struct StateObjectAndObservableObjectView: View {
     
     // created StateOject property wrapper 'counterModel' instance of a customer class 'MyCounterViewModel' ObservableObject
-    // Every StateObject should have ObservedObject and StateObject must confirm to ObservableObject protocol with Published property wrapper if the other views have impact by this value inside this custom class
+    // Every StateObject can have ObservedObject and then StateObject must confirm to ObservableObject protocol with Published property wrapper if the other views have impact by this value inside this custom class
     @StateObject private var counterModel = MyCounterViewModel()
     var body: some View {
         VStack(spacing: 30) {
